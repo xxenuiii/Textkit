@@ -1,8 +1,8 @@
 <template>
   <div class="space-y-6">
     <div class="space-y-2">
-      <h1 class="text-3xl font-bold">加密解密工具</h1>
-      <p class="text-muted-foreground">支持多种加密算法，保护您的敏感数据</p>
+      <h1 class="text-3xl font-bold">{{ $t('crypto.title') }}</h1>
+      <p class="text-muted-foreground">{{ $t('crypto.subtitle') }}</p>
     </div>
 
     <div class="space-y-4">
@@ -18,7 +18,7 @@
             'bg-background': currentType !== type.value
           }"
         >
-          {{ type.label }}
+          {{ $t(`crypto.types.${type.value}`) }}
         </button>
       </div>
 
@@ -26,22 +26,22 @@
       <div class="grid gap-6 lg:grid-cols-2">
         <div class="space-y-4">
           <div class="space-y-2">
-            <label class="text-sm font-medium">输入文本</label>
+            <label class="text-sm font-medium">{{ $t('crypto.inputText') }}</label>
             <textarea
               v-model="inputText"
               rows="8"
-              placeholder="输入要处理的文本"
+              :placeholder="$t('crypto.inputPlaceholder')"
               class="w-full rounded-md border bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             />
           </div>
 
           <!-- AES/RSA 密钥输入 -->
           <div v-if="['aes', 'rsa'].includes(currentType)" class="space-y-2">
-            <label class="text-sm font-medium">密钥</label>
+            <label class="text-sm font-medium">{{ $t('crypto.key') }}</label>
             <input
               v-model="key"
               type="text"
-              :placeholder="currentType === 'aes' ? '输入AES密钥' : '输入RSA公钥/私钥'"
+              :placeholder="currentType === 'aes' ? $t('crypto.aesKeyPlaceholder') : $t('crypto.rsaKeyPlaceholder')"
               class="w-full rounded-md border bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             />
           </div>
@@ -52,13 +52,13 @@
               @click="encrypt"
               class="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
             >
-              加密
+              {{ $t('crypto.encrypt') }}
             </button>
             <button
               @click="decrypt"
               class="rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary/90"
             >
-              解密
+              {{ $t('crypto.decrypt') }}
             </button>
           </div>
         </div>
@@ -66,7 +66,7 @@
         <!-- 输出区域 -->
         <div class="space-y-4">
           <div class="space-y-2">
-            <label class="text-sm font-medium">输出结果</label>
+            <label class="text-sm font-medium">{{ $t('crypto.outputResult') }}</label>
             <div class="relative">
               <textarea
                 v-model="outputText"
@@ -102,14 +102,16 @@ import { ref } from 'vue'
 import { ClipboardIcon } from '@heroicons/vue/outline'
 import CryptoJS from 'crypto-js'
 import { useAppStore } from '../stores/app'
+import { useI18n } from 'vue-i18n'
 
 const store = useAppStore()
+const { t } = useI18n()
 
 const encryptionTypes = [
-  { label: 'Base64', value: 'base64' },
-  { label: 'MD5', value: 'md5' },
-  { label: 'AES', value: 'aes' },
-  { label: 'RSA', value: 'rsa' }
+  { value: 'base64' },
+  { value: 'md5' },
+  { value: 'aes' },
+  { value: 'rsa' }
 ]
 
 const currentType = ref('base64')
@@ -122,7 +124,7 @@ const error = ref('')
 const encrypt = () => {
   error.value = ''
   if (!inputText.value) {
-    error.value = '请输入要加密的文本'
+    error.value = t('crypto.errors.inputRequired')
     return
   }
 
@@ -136,19 +138,19 @@ const encrypt = () => {
         break
       case 'aes':
         if (!key.value) {
-          error.value = '请输入AES密钥'
+          error.value = t('crypto.errors.keyRequired')
           return
         }
         outputText.value = CryptoJS.AES.encrypt(inputText.value, key.value).toString()
         break
       case 'rsa':
-        error.value = 'RSA加密功能正在开发中'
+        error.value = t('crypto.errors.rsaInDevelopment')
         break
     }
 
     store.addRecentInput(inputText.value)
   } catch (e) {
-    error.value = '加密过程中出现错误：' + e.message
+    error.value = t('crypto.errors.encryptError', { error: e.message })
   }
 }
 
@@ -156,7 +158,7 @@ const encrypt = () => {
 const decrypt = () => {
   error.value = ''
   if (!inputText.value) {
-    error.value = '请输入要解密的文本'
+    error.value = t('crypto.errors.decryptRequired')
     return
   }
 
@@ -166,22 +168,22 @@ const decrypt = () => {
         outputText.value = atob(inputText.value)
         break
       case 'md5':
-        error.value = 'MD5是单向加密，无法解密'
+        error.value = t('crypto.errors.md5CannotDecrypt')
         break
       case 'aes':
         if (!key.value) {
-          error.value = '请输入AES密钥'
+          error.value = t('crypto.errors.keyRequired')
           return
         }
         const bytes = CryptoJS.AES.decrypt(inputText.value, key.value)
         outputText.value = bytes.toString(CryptoJS.enc.Utf8)
         break
       case 'rsa':
-        error.value = 'RSA解密功能正在开发中'
+        error.value = t('crypto.errors.rsaInDevelopment')
         break
     }
   } catch (e) {
-    error.value = '解密过程中出现错误：' + e.message
+    error.value = t('crypto.errors.decryptError', { error: e.message })
   }
 }
 
@@ -190,7 +192,7 @@ const copyToClipboard = async () => {
   try {
     await navigator.clipboard.writeText(outputText.value)
   } catch (e) {
-    error.value = '复制失败：' + e.message
+    error.value = t('crypto.errors.copyError', { error: e.message })
   }
 }
 </script>

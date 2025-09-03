@@ -1,0 +1,184 @@
+{
+  "app": {
+    "title": "TextKit",
+    "subtitle": "Text Processing Toolkit",
+    "description": "One-stop text processing solution with multiple practical tools"
+  },
+  "nav": {
+    "regex": "Regex Tester",
+    "crypto": "Encrypt/Decrypt",
+    "uuid": "UUID Generator",
+    "wordCount": "Word Counter",
+    "caseConvert": "Case Converter"
+  },
+  "common": {
+    "copy": "Copy",
+    "clear": "Clear",
+    "input": "Input",
+    "output": "Output",
+    "result": "Result",
+    "error": "Error",
+    "success": "Success",
+    "generate": "Generate",
+    "convert": "Convert",
+    "encrypt": "Encrypt",
+    "decrypt": "Decrypt",
+    "copySuccess": "Copied successfully",
+    "copyFailed": "Copy failed",
+    "pleaseInput": "Please input",
+    "noData": "No data"
+  },
+  "home": {
+    "title": "TextKit Text Processing Toolkit",
+    "subtitle": "One-stop text processing solution with multiple practical tools",
+    "features": {
+      "title": "Features",
+      "frontend": {
+        "title": "Frontend Only",
+        "description": "No backend server required, all operations completed in browser"
+      },
+      "fast": {
+        "title": "Fast Response",
+        "description": "Real-time processing and preview, convenient operation"
+      },
+      "responsive": {
+        "title": "Responsive Design",
+        "description": "Perfect support for mobile and desktop"
+      }
+    },
+    "tools": {
+      "regex": {
+        "name": "Regex Tester",
+        "description": "Real-time testing and validation of regular expressions with multiple matching modes"
+      },
+      "crypto": {
+        "name": "Encrypt/Decrypt",
+        "description": "Support for multiple encryption algorithms to protect your sensitive data"
+      },
+      "uuid": {
+        "name": "UUID Generator",
+        "description": "Generate random UUIDs and secure passwords"
+      },
+      "wordCount": {
+        "name": "Word Counter",
+        "description": "Count text characters, words and paragraphs"
+      },
+      "caseConvert": {
+        "name": "Case Converter",
+        "description": "Support for multiple text format conversions"
+      }
+    }
+  },
+  "regex": {
+    "title": "Regex Tester",
+    "subtitle": "Real-time testing and validation of regular expressions with multiple matching modes",
+    "regexInput": "Regular Expression",
+    "regexPlaceholder": "Enter regular expression",
+    "testText": "Test Text",
+    "testTextPlaceholder": "Enter text to test",
+    "flags": {
+      "global": "Global match (g)",
+      "ignoreCase": "Ignore case (i)",
+      "multiline": "Multiline match (m)"
+    },
+    "matchResult": "Match Result",
+    "matchDetails": "Match Details",
+    "noMatches": "No matches found",
+    "matchesFound": "Found {count} matches:",
+    "position": "Position"
+  },
+  "crypto": {
+    "title": "Encrypt/Decrypt Tool",
+    "subtitle": "Support for multiple encryption algorithms to protect your sensitive data",
+    "inputText": "Input Text",
+    "inputPlaceholder": "Enter text to process",
+    "key": "Key",
+    "aesKeyPlaceholder": "Enter AES key",
+    "rsaKeyPlaceholder": "Enter RSA public/private key",
+    "outputResult": "Output Result",
+    "types": {
+      "base64": "Base64",
+      "md5": "MD5",
+      "aes": "AES",
+      "rsa": "RSA"
+    },
+    "errors": {
+      "inputRequired": "Please enter text to encrypt",
+      "keyRequired": "Please enter AES key",
+      "decryptRequired": "Please enter text to decrypt",
+      "md5CannotDecrypt": "MD5 is one-way encryption and cannot be decrypted",
+      "rsaInDevelopment": "RSA encryption feature is under development",
+      "encryptError": "Error during encryption: {error}",
+      "decryptError": "Error during decryption: {error}",
+      "copyError": "Copy failed: {error}"
+    }
+  },
+  "uuid": {
+    "title": "UUID / Random Password Generator",
+    "subtitle": "Generate UUIDs or custom random passwords",
+    "uuidGenerator": "UUID Generator",
+    "passwordGenerator": "Random Password Generator",
+    "count": "Generate Count",
+    "passwordLength": "Password Length",
+    "charTypes": "Character Types",
+    "charTypesOptions": {
+      "uppercase": "Uppercase Letters",
+      "lowercase": "Lowercase Letters",
+      "numbers": "Numbers",
+      "special": "Special Characters"
+    },
+    "generateUuid": "Generate UUID",
+    "generatePassword": "Generate Password",
+    "copyAll": "Copy All",
+    "copyPassword": "Copy Password",
+    "errors": {
+      "charTypeRequired": "Please select at least one character type",
+      "copyError": "Copy failed: {error}"
+    }
+  },
+  "wordCount": {
+    "title": "Word Counter Tool",
+    "subtitle": "Count characters, words, paragraphs and more in text",
+    "inputText": "Input Text",
+    "inputPlaceholder": "Enter or paste text to count here",
+    "clearText": "Clear Text",
+    "options": {
+      "ignoreWhitespace": "Ignore whitespace",
+      "countPunctuation": "Count punctuation"
+    },
+    "stats": {
+      "characters": "Characters",
+      "charactersWithSpace": "(with spaces)",
+      "charactersWithoutSpace": "(without spaces)",
+      "words": "Words",
+      "chineseChars": "Chinese Characters",
+      "paragraphs": "Paragraphs",
+      "letters": "Letters",
+      "numbers": "Numbers",
+      "punctuation": "Punctuation",
+      "spaces": "Spaces",
+      "lines": "Lines"
+    },
+    "detailedStats": "Detailed Statistics"
+  },
+  "caseConvert": {
+    "title": "Case Converter",
+    "subtitle": "Support for multiple text format conversions",
+    "inputText": "Input Text",
+    "inputPlaceholder": "Enter text to convert",
+    "convertResult": "Convert Result",
+    "options": {
+      "upper": "To Uppercase",
+      "lower": "To Lowercase",
+      "capitalize": "Capitalize First Letter",
+      "camelCase": "Camel Case",
+      "snakeCase": "Snake Case",
+      "kebabCase": "Kebab Case"
+    },
+    "errors": {
+      "inputRequired": "Please enter text to convert",
+      "convertError": "Error during conversion: {error}",
+      "copyError": "Copy failed: {error}"
+    }
+  }
+}

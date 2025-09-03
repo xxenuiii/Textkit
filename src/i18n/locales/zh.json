@@ -1,0 +1,184 @@
+{
+  "app": {
+    "title": "TextKit",
+    "subtitle": "文本处理工具集合",
+    "description": "一站式文本处理解决方案，提供多种实用工具"
+  },
+  "nav": {
+    "regex": "正则测试器",
+    "crypto": "加密解密",
+    "uuid": "UUID生成器",
+    "wordCount": "文字计数",
+    "caseConvert": "大小写转换"
+  },
+  "common": {
+    "copy": "复制",
+    "clear": "清空",
+    "input": "输入",
+    "output": "输出",
+    "result": "结果",
+    "error": "错误",
+    "success": "成功",
+    "generate": "生成",
+    "convert": "转换",
+    "encrypt": "加密",
+    "decrypt": "解密",
+    "copySuccess": "复制成功",
+    "copyFailed": "复制失败",
+    "pleaseInput": "请输入",
+    "noData": "暂无数据"
+  },
+  "home": {
+    "title": "TextKit 文本工具集合",
+    "subtitle": "一站式文本处理解决方案，提供多种实用工具",
+    "features": {
+      "title": "特点",
+      "frontend": {
+        "title": "纯前端实现",
+        "description": "无需后端服务器，所有操作在浏览器中完成"
+      },
+      "fast": {
+        "title": "快速响应",
+        "description": "实时处理和预览，操作便捷"
+      },
+      "responsive": {
+        "title": "响应式设计",
+        "description": "完美支持移动端和桌面端"
+      }
+    },
+    "tools": {
+      "regex": {
+        "name": "正则测试器",
+        "description": "实时测试和验证正则表达式，支持多种匹配模式"
+      },
+      "crypto": {
+        "name": "加密解密",
+        "description": "支持多种加密算法，保护您的敏感数据"
+      },
+      "uuid": {
+        "name": "UUID生成器",
+        "description": "生成随机UUID和安全密码"
+      },
+      "wordCount": {
+        "name": "文字计数",
+        "description": "统计文本字符数、字数和段落数"
+      },
+      "caseConvert": {
+        "name": "大小写转换",
+        "description": "支持多种文本格式转换"
+      }
+    }
+  },
+  "regex": {
+    "title": "正则测试器",
+    "subtitle": "实时测试和验证正则表达式，支持多种匹配模式",
+    "regexInput": "正则表达式",
+    "regexPlaceholder": "输入正则表达式",
+    "testText": "测试文本",
+    "testTextPlaceholder": "输入要测试的文本",
+    "flags": {
+      "global": "全局匹配 (g)",
+      "ignoreCase": "忽略大小写 (i)",
+      "multiline": "多行匹配 (m)"
+    },
+    "matchResult": "匹配结果",
+    "matchDetails": "匹配详情",
+    "noMatches": "未找到匹配项",
+    "matchesFound": "共找到 {count} 个匹配：",
+    "position": "位置"
+  },
+  "crypto": {
+    "title": "加密解密工具",
+    "subtitle": "支持多种加密算法，保护您的敏感数据",
+    "inputText": "输入文本",
+    "inputPlaceholder": "输入要处理的文本",
+    "key": "密钥",
+    "aesKeyPlaceholder": "输入AES密钥",
+    "rsaKeyPlaceholder": "输入RSA公钥/私钥",
+    "outputResult": "输出结果",
+    "types": {
+      "base64": "Base64",
+      "md5": "MD5",
+      "aes": "AES",
+      "rsa": "RSA"
+    },
+    "errors": {
+      "inputRequired": "请输入要加密的文本",
+      "keyRequired": "请输入AES密钥",
+      "decryptRequired": "请输入要解密的文本",
+      "md5CannotDecrypt": "MD5是单向加密，无法解密",
+      "rsaInDevelopment": "RSA加密功能正在开发中",
+      "encryptError": "加密过程中出现错误：{error}",
+      "decryptError": "解密过程中出现错误：{error}",
+      "copyError": "复制失败：{error}"
+    }
+  },
+  "uuid": {
+    "title": "UUID / 随机密码生成器",
+    "subtitle": "生成 UUID 或自定义随机密码",
+    "uuidGenerator": "UUID 生成器",
+    "passwordGenerator": "随机密码生成器",
+    "count": "生成数量",
+    "passwordLength": "密码长度",
+    "charTypes": "字符类型",
+    "charTypesOptions": {
+      "uppercase": "大写字母",
+      "lowercase": "小写字母",
+      "numbers": "数字",
+      "special": "特殊字符"
+    },
+    "generateUuid": "生成 UUID",
+    "generatePassword": "生成密码",
+    "copyAll": "复制全部",
+    "copyPassword": "复制密码",
+    "errors": {
+      "charTypeRequired": "请至少选择一种字符类型",
+      "copyError": "复制失败：{error}"
+    }
+  },
+  "wordCount": {
+    "title": "文字计数工具",
+    "subtitle": "统计文本中的字符数、字数、段落数等",
+    "inputText": "输入文本",
+    "inputPlaceholder": "在此输入或粘贴要统计的文本",
+    "clearText": "清空文本",
+    "options": {
+      "ignoreWhitespace": "忽略空白字符",
+      "countPunctuation": "计算标点符号"
+    },
+    "stats": {
+      "characters": "字符数",
+      "charactersWithSpace": "(含空格)",
+      "charactersWithoutSpace": "(不含空格)",
+      "words": "单词数",
+      "chineseChars": "中文字数",
+      "paragraphs": "段落数",
+      "letters": "英文字母",
+      "numbers": "数字",
+      "punctuation": "标点符号",
+      "spaces": "空格",
+      "lines": "行数"
+    },
+    "detailedStats": "详细统计"
+  },
+  "caseConvert": {
+    "title": "大小写转换",
+    "subtitle": "支持多种文本格式转换",
+    "inputText": "输入文本",
+    "inputPlaceholder": "输入要转换的文本",
+    "convertResult": "转换结果",
+    "options": {
+      "upper": "转换为大写",
+      "lower": "转换为小写",
+      "capitalize": "首字母大写",
+      "camelCase": "驼峰命名",
+      "snakeCase": "下划线命名",
+      "kebabCase": "中划线命名"
+    },
+    "errors": {
+      "inputRequired": "请输入要转换的文本",
+      "convertError": "转换过程中出现错误：{error}",
+      "copyError": "复制失败：{error}"
+    }
+  }
+}

@@ -8,14 +8,26 @@
             <MenuIcon class="h-6 w-6" />
           </button>
           <router-link to="/" class="flex items-center space-x-2">
-            <span class="font-bold">TextKit</span>
+            <span class="font-bold">{{ $t('app.title') }}</span>
           </router-link>
         </div>
         <div class="flex-1" />
-        <button @click="store.toggleDarkMode()" class="ml-auto">
-          <SunIcon v-if="store.darkMode" class="h-6 w-6" />
-          <MoonIcon v-else class="h-6 w-6" />
-        </button>
+        <div class="flex items-center space-x-2">
+          <!-- 语言切换器 -->
+          <select 
+            :value="store.locale" 
+            @change="store.setLocale($event.target.value)"
+            class="rounded-md border bg-background px-2 py-1 text-sm"
+          >
+            <option value="zh">中文</option>
+            <option value="en">English</option>
+          </select>
+          <!-- 主题切换器 -->
+          <button @click="store.toggleDarkMode()" class="ml-auto">
+            <SunIcon v-if="store.darkMode" class="h-6 w-6" />
+            <MoonIcon v-else class="h-6 w-6" />
+          </button>
+        </div>
       </div>
     </nav>
 
@@ -37,7 +49,7 @@
             :class="{ 'bg-accent': $route.path === route.path }"
           >
             <component :is="route.icon" class="h-5 w-5" />
-            <span>{{ route.name }}</span>
+            <span>{{ $t(route.nameKey) }}</span>
           </router-link>
         </nav>
       </aside>
@@ -66,11 +78,11 @@ import { MenuIcon, SunIcon, MoonIcon, TerminalIcon, KeyIcon, IdentificationIcon,
 const store = useAppStore()
 
 const routes = [
-  { path: '/regex', name: '正则测试器', icon: TerminalIcon },
-  { path: '/crypto', name: '加密解密', icon: KeyIcon },
-  { path: '/uuid', name: 'UUID生成器', icon: IdentificationIcon },
-  { path: '/word-count', name: '文字计数', icon: CalculatorIcon },
-  { path: '/case-convert', name: '大小写转换', icon: SwitchVerticalIcon },
+  { path: '/regex', nameKey: 'nav.regex', icon: TerminalIcon },
+  { path: '/crypto', nameKey: 'nav.crypto', icon: KeyIcon },
+  { path: '/uuid', nameKey: 'nav.uuid', icon: IdentificationIcon },
+  { path: '/word-count', nameKey: 'nav.wordCount', icon: CalculatorIcon },
+  { path: '/case-convert', nameKey: 'nav.caseConvert', icon: SwitchVerticalIcon },
 ]
 </script>
 

@@ -1,17 +1,17 @@
 <template>
   <div class="space-y-6">
     <div class="space-y-2">
-      <h1 class="text-3xl font-bold">UUID / 随机密码生成器</h1>
-      <p class="text-muted-foreground">生成 UUID 或自定义随机密码</p>
+      <h1 class="text-3xl font-bold">{{ $t('uuid.title') }}</h1>
+      <p class="text-muted-foreground">{{ $t('uuid.subtitle') }}</p>
     </div>
 
     <div class="grid gap-6 lg:grid-cols-2">
       <!-- UUID 生成器 -->
       <div class="space-y-4">
-        <h2 class="text-xl font-semibold">UUID 生成器</h2>
+        <h2 class="text-xl font-semibold">{{ $t('uuid.uuidGenerator') }}</h2>
         <div class="space-y-4 rounded-lg border bg-card p-4">
           <div class="space-y-2">
-            <label class="text-sm font-medium">生成数量</label>
+            <label class="text-sm font-medium">{{ $t('uuid.count') }}</label>
             <input
               v-model.number="uuidCount"
               type="number"
@@ -26,14 +26,14 @@
               @click="generateUuids"
               class="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
             >
-              生成 UUID
+              {{ $t('uuid.generateUuid') }}
             </button>
             <button
               v-if="uuids.length"
               @click="copyUuids"
               class="rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary/90"
             >
-              复制全部
+              {{ $t('uuid.copyAll') }}
             </button>
           </div>
 
@@ -57,10 +57,10 @@
 
       <!-- 随机密码生成器 -->
       <div class="space-y-4">
-        <h2 class="text-xl font-semibold">随机密码生成器</h2>
+        <h2 class="text-xl font-semibold">{{ $t('uuid.passwordGenerator') }}</h2>
         <div class="space-y-4 rounded-lg border bg-card p-4">
           <div class="space-y-2">
-            <label class="text-sm font-medium">密码长度</label>
+            <label class="text-sm font-medium">{{ $t('uuid.passwordLength') }}</label>
             <input
               v-model.number="passwordLength"
               type="number"
@@ -71,7 +71,7 @@
           </div>
 
           <div class="space-y-2">
-            <label class="text-sm font-medium">字符类型</label>
+            <label class="text-sm font-medium">{{ $t('uuid.charTypes') }}</label>
             <div class="grid grid-cols-2 gap-2">
               <label class="flex items-center space-x-2">
                 <input
@@ -79,7 +79,7 @@
                   type="checkbox"
                   class="h-4 w-4 rounded border-primary"
                 />
-                <span class="text-sm">大写字母</span>
+                <span class="text-sm">{{ $t('uuid.charTypesOptions.uppercase') }}</span>
               </label>
               <label class="flex items-center space-x-2">
                 <input
@@ -87,7 +87,7 @@
                   type="checkbox"
                   class="h-4 w-4 rounded border-primary"
                 />
-                <span class="text-sm">小写字母</span>
+                <span class="text-sm">{{ $t('uuid.charTypesOptions.lowercase') }}</span>
               </label>
               <label class="flex items-center space-x-2">
                 <input

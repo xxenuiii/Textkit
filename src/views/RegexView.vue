@@ -1,20 +1,20 @@
 <template>
   <div class="space-y-6">
     <div class="space-y-2">
-      <h1 class="text-3xl font-bold">正则测试器</h1>
-      <p class="text-muted-foreground">实时测试和验证正则表达式，支持多种匹配模式</p>
+      <h1 class="text-3xl font-bold">{{ $t('regex.title') }}</h1>
+      <p class="text-muted-foreground">{{ $t('regex.subtitle') }}</p>
     </div>
 
     <div class="grid gap-6 lg:grid-cols-2">
       <!-- 输入区域 -->
       <div class="space-y-4">
         <div class="space-y-2">
-          <label class="text-sm font-medium">正则表达式</label>
+          <label class="text-sm font-medium">{{ $t('regex.regexInput') }}</label>
           <div class="flex space-x-2">
             <input
               v-model="regex"
               type="text"
-              placeholder="输入正则表达式"
+              :placeholder="$t('regex.regexPlaceholder')"
               class="flex-1 rounded-md border bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             />
           </div>
@@ -25,7 +25,7 @@
                 type="checkbox"
                 class="h-4 w-4 rounded border-primary"
               />
-              <span class="text-sm">全局匹配 (g)</span>
+              <span class="text-sm">{{ $t('regex.flags.global') }}</span>
             </label>
             <label class="flex items-center space-x-2">
               <input
@@ -33,7 +33,7 @@
                 type="checkbox"
                 class="h-4 w-4 rounded border-primary"
               />
-              <span class="text-sm">忽略大小写 (i)</span>
+              <span class="text-sm">{{ $t('regex.flags.ignoreCase') }}</span>
             </label>
             <label class="flex items-center space-x-2">
               <input
@@ -41,17 +41,17 @@
                 type="checkbox"
                 class="h-4 w-4 rounded border-primary"
               />
-              <span class="text-sm">多行匹配 (m)</span>
+              <span class="text-sm">{{ $t('regex.flags.multiline') }}</span>
             </label>
           </div>
         </div>
 
         <div class="space-y-2">
-          <label class="text-sm font-medium">测试文本</label>
+          <label class="text-sm font-medium">{{ $t('regex.testText') }}</label>
           <textarea
             v-model="text"
             rows="10"
-            placeholder="输入要测试的文本"
+            :placeholder="$t('regex.testTextPlaceholder')"
             class="w-full rounded-md border bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           />
         </div>
@@ -60,7 +60,7 @@
       <!-- 结果区域 -->
       <div class="space-y-4">
         <div class="space-y-2">
-          <h3 class="text-lg font-semibold">匹配结果</h3>
+          <h3 class="text-lg font-semibold">{{ $t('regex.matchResult') }}</h3>
           <div
             class="min-h-[200px] rounded-md border bg-card p-4 font-mono text-sm"
             v-html="highlightedText"
@@ -68,20 +68,20 @@
         </div>
 
         <div class="space-y-2">
-          <h3 class="text-lg font-semibold">匹配详情</h3>
+          <h3 class="text-lg font-semibold">{{ $t('regex.matchDetails') }}</h3>
           <div class="rounded-md border bg-card p-4">
             <div v-if="matches.length" class="space-y-2">
-              <p>共找到 {{ matches.length }} 个匹配：</p>
+              <p>{{ $t('regex.matchesFound', { count: matches.length }) }}</p>
               <ul class="list-inside list-disc space-y-1">
                 <li v-for="(match, index) in matches" :key="index">
                   <span class="font-mono text-primary">{{ match[0] }}</span>
                   <span class="text-sm text-muted-foreground">
-                    (位置: {{ match.index }})
+                    ({{ $t('regex.position') }}: {{ match.index }})
                   </span>
                 </li>
               </ul>
             </div>
-            <p v-else class="text-muted-foreground">未找到匹配项</p>
+            <p v-else class="text-muted-foreground">{{ $t('regex.noMatches') }}</p>
           </div>
         </div>
       </div>

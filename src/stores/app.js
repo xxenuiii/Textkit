@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import i18n from '../i18n'
 
 export const useAppStore = defineStore('app', {
   state: () => ({
@@ -6,7 +7,8 @@ export const useAppStore = defineStore('app', {
     sidebarOpen: true,
     currentTool: null,
     recentInputs: [],
-    favorites: []
+    favorites: [],
+    locale: localStorage.getItem('locale') || 'zh'
   }),
   
   actions: {
@@ -39,6 +41,12 @@ export const useAppStore = defineStore('app', {
       } else {
         this.favorites.splice(index, 1)
       }
+    },
+    
+    setLocale(locale) {
+      this.locale = locale
+      i18n.global.locale.value = locale
+      localStorage.setItem('locale', locale)
     }
   },
   
