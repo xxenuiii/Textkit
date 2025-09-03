@@ -95,7 +95,7 @@
                   type="checkbox"
                   class="h-4 w-4 rounded border-primary"
                 />
-                <span class="text-sm">数字</span>
+                <span class="text-sm">{{ $t('uuid.charTypesOptions.numbers') }}</span>
               </label>
               <label class="flex items-center space-x-2">
                 <input
@@ -103,7 +103,7 @@
                   type="checkbox"
                   class="h-4 w-4 rounded border-primary"
                 />
-                <span class="text-sm">特殊字符</span>
+                <span class="text-sm">{{ $t('uuid.charTypesOptions.special') }}</span>
               </label>
             </div>
           </div>
@@ -113,14 +113,14 @@
               @click="generatePassword"
               class="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
             >
-              生成密码
+              {{ $t('uuid.generatePassword') }}
             </button>
             <button
               v-if="password"
               @click="copyText(password)"
               class="rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary/90"
             >
-              复制密码
+              {{ $t('uuid.copyPassword') }}
             </button>
           </div>
 

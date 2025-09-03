@@ -2,15 +2,15 @@
   <div class="space-y-6">
     <!-- 标题 -->
     <div class="space-y-2">
-      <h1 class="text-3xl font-bold">文字计数工具</h1>
-      <p class="text-muted-foreground">统计文本中的字符数、字数、段落数等</p>
+      <h1 class="text-3xl font-bold">{{ $t('wordCount.title') }}</h1>
+      <p class="text-muted-foreground">{{ $t('wordCount.subtitle') }}</p>
     </div>
 
     <div class="grid gap-6 lg:grid-cols-2">
       <!-- 输入区域 -->
       <div class="space-y-4">
         <div class="space-y-2">
-          <label class="text-sm font-medium">输入文本</label>
+          <label class="text-sm font-medium">{{ $t('wordCount.inputText') }}</label>
           <textarea
             v-model="text"
             rows="12"
