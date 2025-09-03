@@ -21,6 +21,7 @@
           >
             <option value="zh">中文</option>
             <option value="en">English</option>
+            <option value="ja">日本語</option>
           </select>
           <!-- 主题切换器 -->
           <button @click="store.toggleDarkMode()" class="ml-auto">

@@ -14,7 +14,7 @@
           <textarea
             v-model="text"
             rows="12"
-            placeholder="在此输入或粘贴要统计的文本"
+            :placeholder="$t('wordCount.inputPlaceholder')"
             class="w-full rounded-md border bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           />
         </div>
@@ -24,7 +24,7 @@
             @click="clearText"
             class="rounded-md bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary/90"
           >
-            清空文本
+            {{ $t('wordCount.clearText') }}
           </button>
 
           <label class="flex items-center space-x-2">
@@ -33,7 +33,7 @@
               type="checkbox"
               class="h-4 w-4 rounded border-primary"
             />
-            <span class="text-sm">忽略空白字符</span>
+            <span class="text-sm">{{ $t('wordCount.options.ignoreWhitespace') }}</span>
           </label>
 
           <label class="flex items-center space-x-2">
@@ -42,7 +42,7 @@
               type="checkbox"
               class="h-4 w-4 rounded border-primary"
             />
-            <span class="text-sm">计算标点符号</span>
+            <span class="text-sm">{{ $t('wordCount.options.countPunctuation') }}</span>
           </label>
         </div>
       </div>
@@ -52,43 +52,43 @@
         <div class="grid gap-4 sm:grid-cols-2">
           <!-- 字符统计 -->
           <div class="rounded-lg border bg-card p-4">
-            <h3 class="text-sm font-medium text-muted-foreground">字符数</h3>
+            <h3 class="text-sm font-medium text-muted-foreground">{{ $t('wordCount.stats.characters') }}</h3>
             <p class="mt-2 text-2xl font-bold">
               {{ stats.characters }}
               <span class="text-base font-normal text-muted-foreground">
-                {{ countOptions.ignoreWhitespace ? '(不含空格)' : '(含空格)' }}
+                {{ countOptions.ignoreWhitespace ? $t('wordCount.stats.charactersWithoutSpace') : $t('wordCount.stats.charactersWithSpace') }}
               </span>
             </p>
           </div>
 
           <!-- 单词统计 -->
           <div class="rounded-lg border bg-card p-4">
-            <h3 class="text-sm font-medium text-muted-foreground">单词数</h3>
+            <h3 class="text-sm font-medium text-muted-foreground">{{ $t('wordCount.stats.words') }}</h3>
             <p class="mt-2 text-2xl font-bold">{{ stats.words }}</p>
           </div>
 
           <!-- 中文字数 -->
           <div class="rounded-lg border bg-card p-4">
-            <h3 class="text-sm font-medium text-muted-foreground">中文字数</h3>
+            <h3 class="text-sm font-medium text-muted-foreground">{{ $t('wordCount.stats.chineseChars') }}</h3>
             <p class="mt-2 text-2xl font-bold">{{ stats.chineseChars }}</p>
           </div>
 
           <!-- 段落统计 -->
           <div class="rounded-lg border bg-card p-4">
-            <h3 class="text-sm font-medium text-muted-foreground">段落数</h3>
+            <h3 class="text-sm font-medium text-muted-foreground">{{ $t('wordCount.stats.paragraphs') }}</h3>
             <p class="mt-2 text-2xl font-bold">{{ stats.paragraphs }}</p>
           </div>
         </div>
 
         <!-- 详细统计 -->
         <div class="rounded-lg border bg-card p-4">
-          <h3 class="mb-4 font-medium">详细统计</h3>
+          <h3 class="mb-4 font-medium">{{ $t('wordCount.detailedStats') }}</h3>
           <div class="space-y-2 text-sm">
-            <p><span class="text-muted-foreground">英文字母：</span>{{ stats.letters }}</p>
-            <p><span class="text-muted-foreground">数字：</span>{{ stats.numbers }}</p>
-            <p><span class="text-muted-foreground">标点符号：</span>{{ stats.punctuation }}</p>
-            <p><span class="text-muted-foreground">空格：</span>{{ stats.spaces }}</p>
-            <p><span class="text-muted-foreground">行数：</span>{{ stats.lines }}</p>
+            <p><span class="text-muted-foreground">{{ $t('wordCount.stats.letters') }}：</span>{{ stats.letters }}</p>
+            <p><span class="text-muted-foreground">{{ $t('wordCount.stats.numbers') }}：</span>{{ stats.numbers }}</p>
+            <p><span class="text-muted-foreground">{{ $t('wordCount.stats.punctuation') }}：</span>{{ stats.punctuation }}</p>
+            <p><span class="text-muted-foreground">{{ $t('wordCount.stats.spaces') }}：</span>{{ stats.spaces }}</p>
+            <p><span class="text-muted-foreground">{{ $t('wordCount.stats.lines') }}：</span>{{ stats.lines }}</p>
           </div>
         </div>
       </div>
@@ -98,6 +98,9 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const text = ref('')
 const countOptions = ref({

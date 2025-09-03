@@ -1,0 +1,184 @@
+{
+  "app": {
+    "title": "TextKit",
+    "subtitle": "テキスト処理ツールコレクション",
+    "description": "オールインワンテキスト処理ソリューション、様々な実用的なツールを提供"
+  },
+  "nav": {
+    "regex": "正規表現テスター",
+    "crypto": "暗号化と復号化",
+    "uuid": "UUID生成ツール",
+    "wordCount": "文字カウント",
+    "caseConvert": "大文字小文字変換"
+  },
+  "common": {
+    "copy": "コピー",
+    "clear": "クリア",
+    "input": "入力",
+    "output": "出力",
+    "result": "結果",
+    "error": "エラー",
+    "success": "成功",
+    "generate": "生成",
+    "convert": "変換",
+    "encrypt": "暗号化",
+    "decrypt": "復号化",
+    "copySuccess": "コピー成功",
+    "copyFailed": "コピー失敗",
+    "pleaseInput": "入力してください",
+    "noData": "データなし"
+  },
+  "home": {
+    "title": "TextKit テキストツールコレクション",
+    "subtitle": "オールインワンテキスト処理ソリューション、様々な実用的なツールを提供",
+    "features": {
+      "title": "特徴",
+      "frontend": {
+        "title": "フロントエンドのみ",
+        "description": "バックエンドサーバー不要、すべての操作はブラウザで完結"
+      },
+      "fast": {
+        "title": "高速レスポンス",
+        "description": "リアルタイム処理とプレビュー、操作が簡単"
+      },
+      "responsive": {
+        "title": "レスポンシブデザイン",
+        "description": "モバイルとデスクトップの両方に完全対応"
+      }
+    },
+    "tools": {
+      "regex": {
+        "name": "正規表現テスター",
+        "description": "リアルタイムで正規表現をテストと検証、複数のマッチングモードをサポート"
+      },
+      "crypto": {
+        "name": "暗号化と復号化",
+        "description": "複数の暗号化アルゴリズムをサポート、機密データを保護"
+      },
+      "uuid": {
+        "name": "UUID生成ツール",
+        "description": "ランダムUUIDとセキュアパスワードを生成"
+      },
+      "wordCount": {
+        "name": "文字カウント",
+        "description": "テキストの文字数、単語数、段落数を統計"
+      },
+      "caseConvert": {
+        "name": "大文字小文字変換",
+        "description": "複数のテキスト形式変換をサポート"
+      }
+    }
+  },
+  "regex": {
+    "title": "正規表現テスター",
+    "subtitle": "リアルタイムで正規表現をテストと検証、複数のマッチングモードをサポート",
+    "regexInput": "正規表現",
+    "regexPlaceholder": "正規表現を入力",
+    "testText": "テストテキスト",
+    "testTextPlaceholder": "テストするテキストを入力",
+    "flags": {
+      "global": "グローバルマッチ (g)",
+      "ignoreCase": "大文字小文字を無視 (i)",
+      "multiline": "複数行マッチ (m)"
+    },
+    "matchResult": "マッチング結果",
+    "matchDetails": "マッチング詳細",
+    "noMatches": "マッチなし",
+    "matchesFound": "{count}個のマッチが見つかりました：",
+    "position": "位置"
+  },
+  "crypto": {
+    "title": "暗号化と復号化ツール",
+    "subtitle": "複数の暗号化アルゴリズムをサポート、機密データを保護",
+    "inputText": "入力テキスト",
+    "inputPlaceholder": "処理するテキストを入力",
+    "key": "キー",
+    "aesKeyPlaceholder": "AESキーを入力",
+    "rsaKeyPlaceholder": "RSA公開鍵/秘密鍵を入力",
+    "outputResult": "出力結果",
+    "types": {
+      "base64": "Base64",
+      "md5": "MD5",
+      "aes": "AES",
+      "rsa": "RSA"
+    },
+    "errors": {
+      "inputRequired": "暗号化するテキストを入力してください",
+      "keyRequired": "AESキーを入力してください",
+      "decryptRequired": "復号化するテキストを入力してください",
+      "md5CannotDecrypt": "MD5は一方向暗号化のため、復号化できません",
+      "rsaInDevelopment": "RSA暗号化機能は開発中です",
+      "encryptError": "暗号化中にエラーが発生しました：{error}",
+      "decryptError": "復号化中にエラーが発生しました：{error}",
+      "copyError": "コピー失敗：{error}"
+    }
+  },
+  "uuid": {
+    "title": "UUID / ランダムパスワード生成ツール",
+    "subtitle": "UUIDまたはカスタムランダムパスワードを生成",
+    "uuidGenerator": "UUID生成ツール",
+    "passwordGenerator": "ランダムパスワード生成ツール",
+    "count": "生成数",
+    "passwordLength": "パスワード長",
+    "charTypes": "文字タイプ",
+    "charTypesOptions": {
+      "uppercase": "大文字",
+      "lowercase": "小文字",
+      "numbers": "数字",
+      "special": "特殊文字"
+    },
+    "generateUuid": "UUID生成",
+    "generatePassword": "パスワード生成",
+    "copyAll": "すべてコピー",
+    "copyPassword": "パスワードをコピー",
+    "errors": {
+      "charTypeRequired": "少なくとも1つの文字タイプを選択してください",
+      "copyError": "コピー失敗：{error}"
+    }
+  },
+  "wordCount": {
+    "title": "文字カウントツール",
+    "subtitle": "テキスト内の文字数、単語数、段落数などを統計",
+    "inputText": "入力テキスト",
+    "inputPlaceholder": "ここにカウントするテキストを入力または貼り付け",
+    "clearText": "テキストをクリア",
+    "options": {
+      "ignoreWhitespace": "空白文字を無視",
+      "countPunctuation": "句読点をカウント"
+    },
+    "stats": {
+      "characters": "文字数",
+      "charactersWithSpace": "(空白含む)",
+      "charactersWithoutSpace": "(空白除く)",
+      "words": "単語数",
+      "chineseChars": "中国語文字数",
+      "paragraphs": "段落数",
+      "letters": "アルファベット",
+      "numbers": "数字",
+      "punctuation": "句読点",
+      "spaces": "空白",
+      "lines": "行数"
+    },
+    "detailedStats": "詳細統計"
+  },
+  "caseConvert": {
+    "title": "大文字小文字変換",
+    "subtitle": "複数のテキスト形式変換をサポート",
+    "inputText": "入力テキスト",
+    "inputPlaceholder": "変換するテキストを入力",
+    "convertResult": "変換結果",
+    "options": {
+      "upper": "大文字に変換",
+      "lower": "小文字に変換",
+      "capitalize": "先頭文字を大文字に",
+      "camelCase": "キャメルケース",
+      "snakeCase": "スネークケース",
+      "kebabCase": "ケバブケース"
+    },
+    "errors": {
+      "inputRequired": "変換するテキストを入力してください",
+      "convertError": "変換中にエラーが発生しました：{error}",
+      "copyError": "コピー失敗：{error}"
+    }
+  }
+}

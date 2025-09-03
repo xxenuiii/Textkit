@@ -1,19 +1,19 @@
 <template>
   <div class="space-y-6">
     <div class="space-y-2">
-      <h1 class="text-3xl font-bold">大小写转换</h1>
-      <p class="text-muted-foreground">支持多种文本格式转换</p>
+      <h1 class="text-3xl font-bold">{{ $t('caseConvert.title') }}</h1>
+      <p class="text-muted-foreground">{{ $t('caseConvert.subtitle') }}</p>
     </div>
 
     <div class="grid gap-6 lg:grid-cols-2">
       <!-- 输入区域 -->
       <div class="space-y-4">
         <div class="space-y-2">
-          <label class="text-sm font-medium">输入文本</label>
+          <label class="text-sm font-medium">{{ $t('caseConvert.inputText') }}</label>
           <textarea
             v-model="inputText"
             rows="8"
-            placeholder="输入要转换的文本"
+            :placeholder="$t('caseConvert.inputPlaceholder')"
             class="w-full rounded-md border bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           />
         </div>
@@ -34,7 +34,7 @@
       <!-- 输出区域 -->
       <div class="space-y-4">
         <div class="space-y-2">
-          <label class="text-sm font-medium">转换结果</label>
+          <label class="text-sm font-medium">{{ $t('caseConvert.convertResult') }}</label>
           <div class="relative">
             <textarea
               v-model="outputText"
@@ -68,27 +68,29 @@
 import { ref } from 'vue'
 import { ClipboardIcon } from '@heroicons/vue/outline'
 import { useAppStore } from '../stores/app'
+import { useI18n } from 'vue-i18n'
 
 const store = useAppStore()
+const { t } = useI18n()
 
 const inputText = ref('')
 const outputText = ref('')
 const error = ref('')
 
 const convertOptions = [
-  { type: 'upper', label: '转换为大写' },
-  { type: 'lower', label: '转换为小写' },
-  { type: 'capitalize', label: '首字母大写' },
-  { type: 'camelCase', label: '驼峰命名' },
-  { type: 'snakeCase', label: '下划线命名' },
-  { type: 'kebabCase', label: '中划线命名' }
+  { type: 'upper', label: t('caseConvert.options.upper') },
+  { type: 'lower', label: t('caseConvert.options.lower') },
+  { type: 'capitalize', label: t('caseConvert.options.capitalize') },
+  { type: 'camelCase', label: t('caseConvert.options.camelCase') },
+  { type: 'snakeCase', label: t('caseConvert.options.snakeCase') },
+  { type: 'kebabCase', label: t('caseConvert.options.kebabCase') }
 ]
 
 // 转换函数
 const convert = (type) => {
   error.value = ''
   if (!inputText.value) {
-    error.value = '请输入要转换的文本'
+    error.value = t('caseConvert.errors.inputRequired')
     return
   }
 
@@ -132,7 +134,7 @@ const convert = (type) => {
 
     store.addRecentInput(inputText.value)
   } catch (e) {
-    error.value = '转换过程中出现错误：' + e.message
+    error.value = t('caseConvert.errors.convertError', { error: e.message })
   }
 }
 
@@ -141,7 +143,7 @@ const copyToClipboard = async () => {
   try {
     await navigator.clipboard.writeText(outputText.value)
   } catch (e) {
-    error.value = '复制失败：' + e.message
+    error.value = t('caseConvert.errors.copyError', { error: e.message })
   }
 }
 </script>
